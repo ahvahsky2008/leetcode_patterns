@@ -8,10 +8,10 @@ def no_repeat_substring(string):
             charset.remove(string[l])
             l+=1
         charset.add(string[r])
-        res = max(res, l - r + 1)
+        res = max(res, r - l + 1)
     
     return res
 
-x = no_repeat_substring('abcabcbb')
+x = no_repeat_substring("abcabcbb")
 print(x)
 
