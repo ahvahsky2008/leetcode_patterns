@@ -1,4 +1,3 @@
-
 def longest_substring_with_k_distinct(string, k):
     wstart = 0 
     wmax = 0
