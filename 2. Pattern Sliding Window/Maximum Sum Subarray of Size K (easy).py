@@ -1,17 +1,17 @@
 def calc_sum_subarray_of_size_k(arr, k):
-    wstart = 0
-    wsum = 0
-    maxsum = 0
+    window_sum = 0
+    max_sum = 0
     
-    for wend in range(len(arr)):
-        wsum += arr[wend]
-        if wend >= k-1:
-            maxsum = max(maxsum, wsum)
-            wsum -= arr[wstart]
-            wstart+=1
+    for i in range(len(arr)):
+        window_sum+=arr[i]
+        
+        if i>=k:
+            window_sum = window_sum-arr[i-k]
+        
+        max_sum = max(window_sum,max_sum)        
     
-    return maxsum
+    return max_sum  
 
-input = [2, 1, 5, 1, 3, 2]
-result = calc_sum_subarray_of_size_k(input, k=3)
-assert result == 9
+input = [2,3,4,1,5]
+result = calc_sum_subarray_of_size_k(input, k=2)
+assert result == 7
